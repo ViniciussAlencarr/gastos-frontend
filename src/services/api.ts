@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { Gasto, GastoAcumulado } from '../types/global';
 
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://gastos-backend-zr43.onrender.com';
 
 // Cria uma instância do axios
 const api = axios.create({
