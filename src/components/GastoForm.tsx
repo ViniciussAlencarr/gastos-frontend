@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import type { Gasto } from '../types/global';
-
 interface GastoFormProps {
     onSubmit: (gasto: Gasto) => void;
     gasto?: Gasto;
+    mes: number;
+    ano: number;
 }
+
 
 const categorias = ["Alimentação", "Transporte", "Serviços", "Lazer", "Outros"];
 
-const GastoForm: React.FC<GastoFormProps> = ({ onSubmit, gasto }) => {
+const GastoForm: React.FC<GastoFormProps> = ({ onSubmit, gasto, ano, mes }) => {
     const [description, setDescription] = useState('');
     const [valor, setValor] = useState('');
     const [status, setStatus] = useState('pendente');
@@ -26,12 +28,15 @@ const GastoForm: React.FC<GastoFormProps> = ({ onSubmit, gasto }) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!description || !valor) return alert("Preencha descrição e valor");
+        
+        const date = gasto?.date ? new Date(gasto.date) : new Date(ano, mes - 1, 1);
+
         onSubmit({
             description,
             value: parseFloat(valor),
             status,
             category,
-            date: gasto?.date || new Date()
+            date,
         });
         setDescription('');
         setValor('');

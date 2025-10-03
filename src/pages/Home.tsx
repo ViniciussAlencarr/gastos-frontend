@@ -162,7 +162,11 @@ const Home = () => {
             </div>
 
             {/* Formulário de gasto */}
-            <GastoForm onSubmit={handleAddGasto} gasto={editingGasto!} />
+            <GastoForm
+                onSubmit={handleAddGasto}
+                gasto={editingGasto!}
+                mes={mesSelecionado}
+                ano={anoSelecionado} />
 
             {/* Layout de lista + gráficos */}
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
