@@ -4,6 +4,10 @@ export interface Gasto {
     description: string;
     status: string;
     category: string;
+    card?: string;
+    isInstallment?: boolean;
+    installmentCurrent?: number;
+    installmentTotal?: number;
     userId?: string;
     date: Date;
 }
