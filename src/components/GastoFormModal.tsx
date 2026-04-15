@@ -84,7 +84,7 @@ const GastoFormModal: React.FC<GastoFormModalProps> = ({ open, onClose, onSubmit
     };
 
     return (
-        <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm" PaperProps={{ sx: { borderRadius: 3 }}}>
+        <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm" slotProps={{ paper: { sx: { borderRadius: 3 } } }}>
             <DialogTitle>{gastoToEdit ? 'Editar Lançamento' : 'Novo Lançamento'}</DialogTitle>
             <form onSubmit={handleSubmit}>
                 <DialogContent dividers>
@@ -107,9 +107,9 @@ const GastoFormModal: React.FC<GastoFormModalProps> = ({ open, onClose, onSubmit
                                 value={valor}
                                 onChange={e => setValor(e.target.value)}
                                 required
-                                inputProps={{ step: "0.01", min: "0.01" }}
-                                InputProps={{
-                                    startAdornment: <InputAdornment position="start">R$</InputAdornment>,
+                                slotProps={{ 
+                                    htmlInput: { step: "0.01", min: "0.01" },
+                                    input: { startAdornment: <InputAdornment position="start">R$</InputAdornment> }
                                 }}
                             />
                             
@@ -176,7 +176,7 @@ const GastoFormModal: React.FC<GastoFormModalProps> = ({ open, onClose, onSubmit
                                 value={installTimes}
                                 onChange={e => setInstallTimes(parseInt(e.target.value) || 2)}
                                 required
-                                inputProps={{ min: "2", max: "72" }}
+                                slotProps={{ htmlInput: { min: "2", max: "72" } }}
                                 helperText="Gera lançamentos para os próximos meses automaticamente."
                             />
                         )}

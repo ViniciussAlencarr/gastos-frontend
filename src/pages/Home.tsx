@@ -207,7 +207,7 @@ const Home = () => {
                     <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={() => setIsDrawerOpen(true)}>
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" color="primary" fontWeight="bold" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" color="primary" sx={{ fontWeight: "bold", flexGrow: 1 }}>
                         Minhas Finanças
                     </Typography>
                 </Toolbar>
@@ -216,7 +216,7 @@ const Home = () => {
             <Drawer anchor="left" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
                 <Box sx={{ width: 250 }} role="presentation" onClick={() => setIsDrawerOpen(false)}>
                     <Box sx={{ p: 3, backgroundColor: 'primary.dark', color: 'white' }}>
-                        <Typography variant="h6" fontWeight="bold">Minhas Finanças</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: "bold" }}>Minhas Finanças</Typography>
                         <Typography variant="body2" sx={{ opacity: 0.8 }}>Menu Principal</Typography>
                     </Box>
                     <List sx={{ mt: 1 }}>
@@ -254,7 +254,7 @@ const Home = () => {
             <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 4, md: 6 } }}>
                 <Grid container spacing={3} sx={{ mb: 4 }}>
                     {/* Salário */}
-                    <Grid item xs={12} md={4}>
+                    <Grid size={{xs: 12, md: 4}}>
                         <Card sx={{ height: '100%', borderRadius: 3, boxShadow: 2 }}>
                             <CardContent>
                                 <Typography variant="subtitle2" color="textSecondary" gutterBottom>
@@ -267,14 +267,14 @@ const Home = () => {
                                     size="small"
                                     fullWidth
                                     variant="outlined"
-                                    inputProps={{ step: "0.01" }}
+                                    slotProps={{ htmlInput: { step: "0.01" } }}
                                 />
                             </CardContent>
                         </Card>
                     </Grid>
 
                     {/* Filtro Mês/Ano */}
-                    <Grid item xs={12} md={8}>
+                    <Grid size={{xs: 12, md: 8}}>
                         <Card sx={{ height: '100%', borderRadius: 3, boxShadow: 2 }}>
                             <CardContent sx={{ display: 'flex', gap: 3, alignItems: 'center', height: '100%' }}>
                                 <Box sx={{ flexGrow: 1 }}>
@@ -287,7 +287,7 @@ const Home = () => {
                                             <Select
                                                 value={mesSelecionado}
                                                 label="Mês"
-                                                onChange={e => setMesSelecionado(parseInt(e.target.value as string))}
+                                                onChange={e => setMesSelecionado(parseInt(e.target.value as unknown as string))}
                                                 sx={{ borderRadius: 2 }}
                                             >
                                                 {Array.from({ length: 12 }, (_, i) => (
@@ -314,22 +314,22 @@ const Home = () => {
 
                 {/* Resumo Financeiro */}
                 <Grid container spacing={3} sx={{ mb: 4 }}>
-                    <Grid item xs={12} sm={4}>
+                    <Grid size={{xs: 12, sm: 4}}>
                         <Paper elevation={2} sx={{ p: 3, textAlign: 'center', borderRadius: 4, backgroundColor: 'error.dark', color: 'white' }}>
                             <Typography variant="subtitle2" sx={{ opacity: 0.9 }}>Pendente à Pagar</Typography>
-                            <Typography variant="h5" fontWeight="bold">{formatMoney(totalPendente)}</Typography>
+                            <Typography variant="h5" sx={{ fontWeight: "bold" }}>{formatMoney(totalPendente)}</Typography>
                         </Paper>
                     </Grid>
-                    <Grid item xs={12} sm={4}>
+                    <Grid size={{xs: 12, sm: 4}}>
                         <Paper elevation={2} sx={{ p: 3, textAlign: 'center', borderRadius: 4, backgroundColor: saldo >= 0 ? 'success.dark' : 'error.dark', color: 'white' }}>
                             <Typography variant="subtitle2" sx={{ opacity: 0.9 }}>Saldo Restante (Mês)</Typography>
-                            <Typography variant="h5" fontWeight="bold">{formatMoney(saldo)}</Typography>
+                            <Typography variant="h5" sx={{ fontWeight: "bold" }}>{formatMoney(saldo)}</Typography>
                         </Paper>
                     </Grid>
-                    <Grid item xs={12} sm={4}>
+                    <Grid size={{xs: 12, sm: 4}}>
                         <Paper elevation={2} sx={{ p: 3, textAlign: 'center', borderRadius: 4, backgroundColor: 'primary.dark', color: 'white' }}>
                             <Typography variant="subtitle2" sx={{ opacity: 0.9 }}>Valor do Filtro Abaixo</Typography>
-                            <Typography variant="h5" fontWeight="bold">{formatMoney(totalFiltrado)}</Typography>
+                            <Typography variant="h5" sx={{ fontWeight: "bold" }}>{formatMoney(totalFiltrado)}</Typography>
                         </Paper>
                     </Grid>
                 </Grid>
@@ -339,7 +339,7 @@ const Home = () => {
                 {/* Layout de lista + gráficos */}
                 <Grid container spacing={4} sx={{ position: 'relative' }}>
                     {/* Lista de gastos */}
-                    <Grid item xs={12} md={6} lg={5}>
+                    <Grid size={{xs: 12, md: 6, lg: 5}}>
                         <SearchAndFilter
                             gastos={gastos}
                             setEditingGasto={handleOpenEditModal}
@@ -349,7 +349,7 @@ const Home = () => {
                     </Grid>
 
                     {/* Gráficos */}
-                    <Grid item xs={12} md={6} lg={7} sx={{ flex: 1 }}>
+                    <Grid size={{xs: 12, md: 6, lg: 7}} sx={{ flex: 1 }}>
                         <Box sx={{ 
                             position: { md: 'sticky' }, 
                             top: { md: 100 }, 

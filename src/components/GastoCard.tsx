@@ -54,12 +54,12 @@ const GastoCard: React.FC<GastoCardProps> = ({ gasto, onEdit, onDelete }) => {
             <CardContent sx={{ p: 2, '&:last-child': { pb: 2 } }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5, flexGrow: 1 }}>
-                        <Typography variant="h6" fontWeight="bold" sx={{ lineHeight: 1.2 }}>
+                        <Typography variant="h6" sx={{ fontWeight: "bold", lineHeight: 1.2 }}>
                             {gasto.description}
                         </Typography>
                         
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 0.5 }}>
-                            <Typography variant="body1" color={isPago ? 'success.main' : 'error.main'} fontWeight="bold">
+                            <Typography variant="body1" color={isPago ? 'success.main' : 'error.main'} sx={{ fontWeight: "bold" }}>
                                 {formatMoney(gasto.value)}
                             </Typography>
                             
@@ -97,10 +97,10 @@ const GastoCard: React.FC<GastoCardProps> = ({ gasto, onEdit, onDelete }) => {
                 {isInstallment && (
                     <Box sx={{ mt: 2, p: 1.5, backgroundColor: 'action.hover', borderRadius: 2 }}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}>
-                            <Typography variant="caption" color="text.secondary" fontWeight="bold">
+                            <Typography variant="caption" color="text.secondary" sx={{ fontWeight: "bold" }}>
                                 Compra Parcelada
                             </Typography>
-                            <Typography variant="caption" color="primary" fontWeight="bold">
+                            <Typography variant="caption" color="primary" sx={{ fontWeight: "bold" }}>
                                 {gasto.installmentCurrent} de {gasto.installmentTotal}
                             </Typography>
                         </Box>

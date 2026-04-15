@@ -77,7 +77,7 @@ const SearchAndFilter: React.FC<Props> = ({ gastos, setEditingGasto, handleDelet
                 <CardContent sx={{ pb: 2 }}>
                     <Typography variant="h6" gutterBottom>Filtros e Ordenação</Typography>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6} md={3}>
+                        <Grid size={{xs: 12, sm: 6, md: 3}}>
                             <TextField
                                 fullWidth
                                 variant="outlined"
@@ -87,7 +87,7 @@ const SearchAndFilter: React.FC<Props> = ({ gastos, setEditingGasto, handleDelet
                                 size="small"
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
+                        <Grid size={{xs: 12, sm: 6, md: 3}}>
                             <FormControl fullWidth variant="outlined" size="small">
                                 <InputLabel>Categoria</InputLabel>
                                 <Select
@@ -101,7 +101,7 @@ const SearchAndFilter: React.FC<Props> = ({ gastos, setEditingGasto, handleDelet
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
+                        <Grid size={{xs: 12, sm: 6, md: 3}}>
                             <FormControl fullWidth variant="outlined" size="small">
                                 <InputLabel>Cartão / Banco</InputLabel>
                                 <Select
@@ -115,7 +115,7 @@ const SearchAndFilter: React.FC<Props> = ({ gastos, setEditingGasto, handleDelet
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
+                        <Grid size={{xs: 12, sm: 6, md: 3}}>
                             <FormControl fullWidth variant="outlined" size="small">
                                 <InputLabel>Ordernar por</InputLabel>
                                 <Select
